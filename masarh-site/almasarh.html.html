@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>المسرة لتنسيق المناسبات</title>
+
+  <!-- jsPDF مكتبة توليد PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: blueviolet;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #a3b18a;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    footer {
+      background-color: #344e41;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    .gallery img {
+      width: 200px;
+      height: auto;
+      margin: 10px;
+      border: 2px solid #ccc;
+    }
+    form input, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    form button {
+      background-color: #588157;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #476847;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="المسرة 2.jpg" width="200" style="border-radius:50%;">
+  <h1>المسرة لتنسيق المناسبات</h1>
+  <p>نُجسد لحظاتكم بأناقة وتميّز</p>
+  <h1>بني وليد – التلمات – بجانب شيل الحضيري</h1>
+</header>
+
+<nav>
+  <a href="#about">عن المسرة</a>
+  <a href="#services">خدماتنا</a>
+  <a href="#gallery">معرض الصور</a>
+  <a href="#booking">احجز الآن</a>
+  <a href="#contact">تواصل معنا</a>
+</nav>
+
+<section id="about">
+  <h2>من نحن</h2>
+  <p>نحن شركة "المسرة" لتنسيق وتنظيم المناسبات، نُحول أفراحكم إلى لحظات لا تُنسى بتصاميم مبتكرة وتنسيقات احترافية، نهتم بأدق التفاصيل لنرسم البهجة في قلوبكم.</p>
+</section>
+
+<section id="services">
+  <h2>خدماتنا</h2>
+  <ul>
+    <li>تنسيق الأعراس</li>
+    <li>تجهيز حفلات التخرج ولمّات المواليد بأحدث التنسيقات</li>
+    <li>تنظيم حفلات توديع العزوبية</li>
+    <li>تصاميم طاولات حلويات وزينة</li>
+    <li>أحدث الديكورات الراقية</li>
+    <li>أسعار بمتناول الجميع والدفع: كاش – شيك – بطاقة – تحويل</li>
+  </ul>
+</section>
+
+<section id="gallery">
+  <h2>معرض الصور</h2>
+  <div class="gallery">
+    <img src="المسرة3.jpg" alt="صورة من مناسبة">
+    <img src="المسرة4.jpg" alt="تنسيق طاولة">
+    <img src="المسرة5.jpg" alt="زينة مناسبة">
+  </div>
+</section>
+
+<section id="booking">
+  <h2>احجز الآن</h2>
+  <form onsubmit="sendWhatsAppMessage(); return false;">
+    <label for="name">الاسم الكامل:</label>
+    <input type="text" id="name" required>
+
+    <label for="event">نوع المناسبة:</label>
+    <input type="text" id="event" placeholder="مثلاً: خطوبة - تخرج" required>
+
+    <label for="date">تاريخ المناسبة:</label>
+    <input type="date" id="date" required>
+
+    <label for="location">الموقع:</label>
+    <input type="text" id="location" placeholder="أي قبيلة في بني وليد" required>
+
+    <button type="submit">أرسل الحجز عبر واتساب</button>
+    <button type="button" onclick="downloadInvoice()">تحميل الفاتورة PDF</button>
+  </form>
+</section>
+
+<section id="contact">
+  <h2>تواصل معنا</h2>
+  <p>📞 الهاتف: 0912345678</p>
+  <p>📱 واتساب: 0915513063</p>
+  <p>📍 بني وليد – ليبيا</p>
+  <p>📸 إنستغرام: @almasarra.ly</p>
+</section>
+
+<a href="sms:+218915513063">📩 SMS</a><br>
+<a href="tel:+218915513063">📞 اتصال مباشر</a><br>
+<a href="mailto:kayangy22@gmail.com">📧 E-mail</a><br>
+<a href="https://www.facebook.com/share/1BqJWVYX7a/?mibextid=wwXIfr">📘 Facebook</a><br>
+<a href="https://wa.me/218915513063">📱 WhatsApp مباشر</a><br>
+
+<footer>
+  <p>© 2025 جميع الحقوق محفوظة لشركة المسرة لتنسيق المناسبات</p>
+</footer>
+
+<script>
+  function sendWhatsAppMessage() {
+    var name = document.getElementById("name").value;
+    var event = document.getElementById("event").value;
+    var date = document.getElementById("date").value;
+    var location = document.getElementById("location").value;
+
+    var message = '📌 *طلب حجز من موقع المسرة*\n\n +'
+                  '*الاسم:* ${name}\n +'
+                  '*نوع المناسبة:* ${event}\n +'
+                  '*التاريخ:* ${date}\n +'
+                  '*الموقع:* ${location}\n\n +'
+                 ' كيفك؟ ننتظر تأكيدك للحجز 🌸;'
+
+    var phoneNumber = "915513063";
+    var url = "https://wa.me/218" + phoneNumber + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+  }
+
+  async function downloadInvoice() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    var name = document.getElementById("name").value;
+    var event = document.getElementById("event").value;
+    var date = document.getElementById("date").value;
+    var location = document.getElementById("location").value;
+
+    let now = new Date().toLocaleDateString();
+
+    var img = new Image();
+    img.src = "logo.jpg"; // تأكدي إن الصورة موجودة بنفس المجلد
+
+    img.onload = function () {
+      doc.addImage(img, 'JPEG', 60, 10, 90, 30); // وسط الصفحة
+
+      doc.setFontSize(16);
+      doc.text("🧾 فاتورة حجز من المسرة", 20, 50);
+      doc.setFontSize(14);
+      doc.text ('الاسم: ${name}', 20, 70);
+      doc.text ('نوع المناسبة: ${event}', 20, 80);
+      doc.text ('تاريخ المناسبة: ${date}', 20, 90);
+      doc.text('الموقع: ${location}', 20, 100);
+      doc.text('تاريخ الإصدار: ${now}', 20, 110);
+      doc.text("📞 للاستفسار: 0915513063", 20, 125);
+
+      doc.save("فاتورة_حجز_المسرة.pdf");
+    };
+  }
+</script>
+
+</body>
+</html>
